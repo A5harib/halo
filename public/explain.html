@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Explain Dashboard — ProspectHalo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased p-8">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <header class="border-b border-slate-200 pb-6 flex items-center justify-between">
+            <div>
+                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900">ProspectHalo Command Center</h1>
+                <p class="mt-2 text-lg text-slate-600">Live project state, architecture, design systems, and next steps.</p>
+            </div>
+            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full border border-green-200">
+                Front-end Cleaned & Built
+            </span>
+        </header>
+
+        <!-- 1. Actionable AI Choices -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">1. Actionable AI Choices (Next Steps)</h2>
+            <p class="text-slate-600">Copy any of the JSON commands below and paste them to continue the conversation with this specific context.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Option 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 1</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-900">Add Mock Test Suite</h3>
+                        <p class="text-slate-600 text-sm mt-2">Create comprehensive mock tests for verifying the API routes (find-prospects, generate-message, score-intent) without using live Groq API keys.</p>
+                    </div>
+                    <div class="mt-4">
+                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
+  "task": "add_mock_tests",
+  "scope": ["app/api/**/*.js"]
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 2</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-900">Local Campaign Import/Export</h3>
+                        <p class="text-slate-600 text-sm mt-2">Implement localStorage export/import of saved prospect campaigns so users don't lose their data when they refresh the browser.</p>
+                    </div>
+                    <div class="mt-4">
+                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
+  "task": "local_import_export",
+  "scope": ["app/page.jsx"]
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 3</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-900">Reply Simulator Sandbox</h3>
+                        <p class="text-slate-600 text-sm mt-2">Add an interactive email/LinkedIn reply simulator sandbox where the user can write a mock prospect reply and test the intent classifier live.</p>
+                    </div>
+                    <div class="mt-4">
+                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
+  "task": "intent_sandbox",
+  "scope": ["app/page.jsx"]
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The Design System -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">2. The Design System</h2>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+                <!-- Color Palettes -->
+                <div>
+                    <h3 class="text-md font-bold text-slate-700 uppercase tracking-wider mb-3">Color Swatches</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-white border border-slate-200"></div>
+                            <span class="text-xs font-mono block">--surface-0 (#ffffff)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-slate-50 border border-slate-200"></div>
+                            <span class="text-xs font-mono block">--surface-1 (#f8f9fb)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-indigo-600"></div>
+                            <span class="text-xs font-mono block">--accent (#4f46e5)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-emerald-600"></div>
+                            <span class="text-xs font-mono block">--green (#16a34a)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-amber-500"></div>
+                            <span class="text-xs font-mono block">--amber (#d97706)</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="h-12 w-full rounded bg-red-600"></div>
+                            <span class="text-xs font-mono block">--red (#dc2626)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="border-t border-slate-100 pt-6">
+                    <h3 class="text-md font-bold text-slate-700 uppercase tracking-wider mb-3">Typography & Fonts</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-semibold text-slate-400 uppercase">Heading Font (Fraunces Serif)</span>
+                            <h4 class="text-3xl font-serif text-slate-900 mt-1">Prospects find you, replies close.</h4>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-400 uppercase">Body Font (Plus Jakarta Sans)</span>
+                            <p class="text-base text-slate-700 mt-1">Describe your ideal customer. ProspectHalo finds the right people and runs outreach sequences across your email and LinkedIn.</p>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-400 uppercase">Code Font (JetBrains Mono)</span>
+                            <p class="text-sm font-mono text-slate-600 mt-1">const model = "openai/gpt-oss-120b";</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Task Management -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">3. Task Management (To-do & Done)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Pending To-do's -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-indigo-700">Pending Tasks</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-400 font-mono">[ ]</span>
+                            <span>Create automated unit tests for checking Groq response parser stability.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-400 font-mono">[ ]</span>
+                            <span>Integrate simulated test replies for testing response classification.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-400 font-mono">[ ]</span>
+                            <span>Enable CSV data upload to bootstrap targeted AI research.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Completed Work -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-emerald-700">Completed Work</h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span><strong>Refactored & Compartmentalized Code:</strong> Extracted modular components to the <code>components/</code> folder. Simplified <code>page.jsx</code> from ~716 lines to ~268 lines.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span><strong>Migrated styling & icons:</strong> Converted inline styles to Tailwind CSS v4 utility classes and inline SVGs to standard <code>lucide-react</code> icons.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 font-bold">✓</span>
+                            <span><strong>CSS Parse Error Fixed:</strong> Removed the duplicated <code>@import</code> inside the page JSX style block and moved it into the layout HTML head.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Architecture Walkthrough -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">4. Architecture Walkthrough & Pipelines</h2>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <p class="text-slate-700">
+                    ProspectHalo operates as a serverless Next.js application leveraging edge-ready API routes connecting to Groq. By utilizing the <code>openai/gpt-oss-120b</code> model, response times are extremely rapid.
+                </p>
+                <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4 rounded-r-lg">
+                    <h4 class="font-bold text-indigo-900 text-sm">Key Build Pipeline:</h4>
+                    <p class="text-xs text-indigo-700 mt-1">
+                        Dev Mode: Turbopack transpiles globals.css and parses React components. Next.js 16 compiles and bundles assets. By importing external fonts via layout headers instead of CSS files, we bypass CSS ordering parsing rules and improve Page Speed metrics.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Workflows & Flow Charts -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">5. System Workflows</h2>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex justify-center">
+                <div class="mermaid w-full">
+                    flowchart TD
+                        User[User Input ICP] -->|POST description| SearchAPI[api/find-prospects]
+                        SearchAPI -->|Call Groq SDK gpt-oss-120b| Groq[Groq API]
+                        Groq -->|JSON List| SearchAPI
+                        SearchAPI -->|Array of 10 Profiles| UI[Page UI Grid]
+                        
+                        UI -->|Click Generate Message| MsgAPI[api/generate-message]
+                        MsgAPI -->|Call Groq with context| Groq
+                        Groq -->|Draft email/LinkedIn copy| MsgAPI
+                        MsgAPI -->|Display message| UI
+                        
+                        UI -->|Paste Reply| ScoreAPI[api/score-intent]
+                        ScoreAPI -->|Call Groq to score reply| Groq
+                        Groq -->|Classified Intent + follow-up| ScoreAPI
+                        ScoreAPI -->|Display Intent Score| UI
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Class Diagram Area -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-slate-800">6. Domain Data Structure</h2>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex justify-center">
+                <div class="mermaid w-full">
+                    classDiagram
+                        class Prospect {
+                            +string name
+                            +string title
+                            +string company
+                            +string industry
+                            +string location
+                            +string email
+                            +string phone
+                            +string linkedin
+                            +string companySize
+                            +string revenue
+                            +int confidence
+                            +string[] hooks
+                            +string[] painPoints
+                            +string[] techStack
+                        }
+                        class OutreachMessage {
+                            +string subject
+                            +string body
+                            +string message
+                        }
+                        class IntentScore {
+                            +string score
+                            +int confidence
+                            +string summary
+                            +string suggestedReply
+                        }
+                        
+                        Prospect --> OutreachMessage : generates
+                        OutreachMessage --> IntentScore : categorizes response
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
