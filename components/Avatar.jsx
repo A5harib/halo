@@ -1,20 +1,20 @@
 import React from "react";
 
-const AVATAR_CLASSES = [
-  "bg-indigo-100 text-indigo-600",
-  "bg-emerald-100 text-emerald-600",
-  "bg-amber-100 text-amber-600",
-  "bg-pink-100 text-pink-700",
-  "bg-sky-100 text-sky-700",
-  "bg-purple-100 text-purple-600",
+const AVATAR_COLORS = [
+  "bg-[#f9eae6] text-[#c2593f]",
+  "bg-[#e0f2e9] text-[#2e5a44]",
+  "bg-[#fef3d6] text-[#855b09]",
+  "bg-[#fce8e6] text-[#942e29]",
+  "bg-[#e8eff9] text-[#1b3e70]",
+  "bg-[#f4efe6] text-[#1a1a1a]",
 ];
 
-export default function Avatar({ name, sizeClass = "w-[38px] h-[38px] text-[14.5px]", idx = 0 }) {
-  const colorClass = AVATAR_CLASSES[idx % AVATAR_CLASSES.length];
+export default function Avatar({ name, sizeClass = "w-[36px] h-[36px] text-xs", idx = 0 }) {
+  const colorClass = AVATAR_COLORS[idx % AVATAR_COLORS.length];
   const initial = (name || "?")[0].toUpperCase();
 
   return (
-    <div className={`rounded-full flex items-center justify-center font-semibold font-sans shrink-0 ${sizeClass} ${colorClass}`}>
+    <div className={`rounded-none border-2 border-[#1a1a1a] font-mono font-bold tracking-wider shrink-0 flex items-center justify-center shadow-[2px_2px_0px_#1a1a1a] select-none ${sizeClass} ${colorClass}`}>
       {initial}
     </div>
   );

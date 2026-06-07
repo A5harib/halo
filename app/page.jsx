@@ -1,19 +1,19 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Search, Sparkles, ArrowLeft, Download, X, Zap } from "lucide-react";
+import { Search, Sparkles, ArrowLeft, Download, X, Zap, Cpu } from "lucide-react";
 import Spinner from "@/components/Spinner";
 import SkeletonRow from "@/components/SkeletonRow";
 import ProspectRow from "@/components/ProspectRow";
 
-// ── Suggestions ───────────────────────────────────────────────────────────────
+// ── Suggestions (focused on Pakistan tech & manufacturing hubs) ──────────────────────────────────
 const SUGGESTIONS = [
-  "SaaS CTOs at Series A startups in New York",
-  "Roofing company owners in Florida",
-  "E-commerce founders doing $1M–$10M revenue",
-  "HR Directors at 200-500 person companies in London",
-  "Real estate agents in California with 5+ years experience",
-  "Restaurant owners in Chicago with multiple locations",
+  "Software houses in Lahore",
+  "SaaS founders & CEOs in Karachi",
+  "E-commerce store creators in Islamabad",
+  "Textile manufacturing executives in Faisalabad",
+  "CTOs at fintech startups in Pakistan",
+  "Marketing agency directors in Karachi & Lahore",
 ];
 
 // ── CSV export ─────────────────────────────────────────────────────────────────
@@ -93,93 +93,97 @@ export default function Home() {
   return (
     <>
       {/* ── Topnav ── */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-[1100px] mx-auto px-8 h-14 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-[#faf8f5] border-b-2 border-[#1a1a1a]">
+        <div className="max-w-[1100px] mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-[30px] h-[30px] rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-md shadow-indigo-600/30">
-              <Zap className="w-3.5 h-3.5 text-white" />
+          <div className="flex items-center gap-3">
+            <div className="w-[32px] h-[32px] bg-[#c2593f] border-2 border-[#1a1a1a] flex items-center justify-center shadow-[2px_2px_0px_#1a1a1a]">
+              <Zap className="w-4 h-4 text-white fill-current" />
             </div>
-            <span className="font-serif text-[19px] font-semibold text-slate-900 tracking-tight">
-              ProspectHalo
+            <span className="font-sans font-extrabold text-base tracking-tight text-[#1a1a1a] uppercase">
+              PROSPECT<span className="text-[#c2593f]">HALO</span>
             </span>
           </div>
           {/* Right */}
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] text-slate-400 font-mono">
-              openai/gpt-oss-120b via Groq
-            </span>
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]" />
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10px] text-[#1a1a1a] font-bold bg-[#f4efe6] border-2 border-[#1a1a1a] px-2.5 py-1">
+              <Cpu className="w-3.5 h-3.5 text-[#c2593f]" />
+              <span>gpt-oss-120b &middot; groq</span>
+            </div>
+            <div className="flex items-center gap-2 bg-[#f4efe6] border-2 border-[#1a1a1a] px-2.5 py-1">
+              <span className="w-2 h-2 rounded-none bg-[#2e5a44] anim-pulse" />
+              <span className="text-[10px] text-[#1a1a1a] font-mono font-bold uppercase tracking-wider">LIVE NODE</span>
+            </div>
           </div>
         </div>
       </header>
 
       {/* ── Page body ── */}
-      <main className="max-w-[1100px] mx-auto px-8 pb-20">
+      <main className="max-w-[1100px] mx-auto px-6 pb-24">
         
         {/* ── HERO (pre-search) ── */}
         {!searched && !loading && (
           <div className="text-center py-16 md:py-24 anim-fade-up">
             {/* Status pill */}
-            <div className="inline-flex items-center gap-1.5 bg-indigo-50 border border-indigo-200 rounded-full px-3.5 py-1 mb-7 text-xs text-indigo-600 font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5" /> AI prospect intelligence
+            <div className="inline-flex items-center gap-1.5 bg-[#f4efe6] border-2 border-[#1a1a1a] px-4 py-1.5 mb-8 text-[11px] text-[#1a1a1a] font-mono font-bold uppercase tracking-wider shadow-[2px_2px_0px_#1a1a1a]">
+              <Sparkles className="w-3.5 h-3.5 text-[#c2593f]" /> B2B Prospect Intel Pipeline
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.08] tracking-tight text-slate-900 mb-5">
-              Describe your customer.{" "}
-              <em className="not-italic text-indigo-600">AI finds them.</em>
+            <h1 className="font-serif italic font-medium text-4xl sm:text-5xl md:text-6xl tracking-tight text-[#1a1a1a] mb-6 leading-[1.12]">
+              Describe your customer. <br />
+              <span className="text-[#c2593f] not-italic font-extrabold font-sans underline decoration-[3px] decoration-solid decoration-[#1a1a1a]">AI Finds them for YOU.</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-lg mx-auto mb-10 font-normal font-sans">
-              Type who you want in plain English. Get 10 verified prospects with contact details and personalized outreach &mdash; in seconds.
+            <p className="text-xs sm:text-sm text-[#4a4a4a] leading-relaxed max-w-lg mx-auto mb-12 font-medium font-sans">
+              Type your ideal target profile. We crawl live search databases to compile verified prospect profiles with exact emails, personalized hooks, and custom campaign messages.
             </p>
           </div>
         )}
 
         {/* ── Results header ── */}
         {searched && (
-          <div className="flex flex-col md:flex-row md:items-center justify-between py-8 pb-5 gap-4 flex-wrap anim-fade-in">
+          <div className="flex flex-col md:flex-row md:items-center justify-between py-8 pb-6 gap-4 flex-wrap anim-fade-in">
             <div className="flex items-center gap-4 flex-wrap">
               <button
+                id="new-search-back-button"
                 onClick={reset}
-                className="flex items-center gap-1.5 bg-white border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 rounded-lg px-3 py-1.5 text-xs text-slate-600 cursor-pointer transition-all font-sans"
+                className="neo-button-secondary py-2 px-4 text-xs font-bold font-sans active:translate-y-[1px]"
               >
-                <ArrowLeft className="w-3.5 h-3.5" /> New search
+                <ArrowLeft className="w-3.5 h-3.5 text-[#c2593f] inline mr-1" /> New Search
               </button>
-              <div>
-                <span className="font-serif text-2xl font-bold text-slate-900 tracking-tight">
-                  {prospects.length}
-                </span>
-                <span className="text-slate-400 text-xs ml-1.5 font-sans font-semibold">prospects &middot; avg {avgConf}% match</span>
+              <div className="font-mono text-sm font-bold uppercase tracking-wider text-[#1a1a1a] bg-[#f4efe6] border-2 border-[#1a1a1a] px-3 py-2 shadow-[2px_2px_0px_#1a1a1a]">
+                <span>{prospects.length} targets matched</span>
+                <span className="mx-2">&middot;</span>
+                <span className="text-[#c2593f]">{avgConf}% match confidence avg</span>
               </div>
-              <div className="bg-slate-50 border border-slate-200 rounded-md px-2.5 py-1 text-xs text-slate-500 italic max-w-[280px] truncate">
+              <div className="bg-[#f4efe6] border-2 border-[#1a1a1a] px-3 py-2 text-xs text-[#1a1a1a] font-mono italic max-w-[280px] truncate shadow-[2px_2px_0px_#1a1a1a]">
                 &ldquo;{lastQuery}&rdquo;
               </div>
             </div>
             <button
+              id="csv-export-button"
               onClick={() => exportCSV(prospects)}
-              className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-600 rounded-lg px-3.5 py-2 text-xs font-semibold text-slate-600 cursor-pointer transition-all font-sans"
+              className="neo-button-primary py-2.5 px-4 text-xs font-bold font-sans active:translate-y-[1px]"
             >
-              <Download className="w-3.5 h-3.5" /> Export CSV
+              <Download className="w-3.5 h-3.5 text-white inline mr-1" /> Export CSV
             </button>
           </div>
         )}
 
         {/* ── Search bar ── */}
-        <div className="relative mb-5">
+        <div className="relative mb-8">
           <div
-            className={`flex items-center bg-white border-2 rounded-xl shadow-sm transition-all duration-200 overflow-hidden ${
+            className={`flex items-center bg-[#faf8f5] border-2 border-[#1a1a1a] shadow-[4px_4px_0px_#1a1a1a] transition-all duration-150 overflow-hidden tactile-input-focus ${
               loading
-                ? "border-indigo-600 ring-4 ring-indigo-600/10 shadow-md"
-                : searched
-                ? "border-slate-200"
-                : "border-slate-300 focus-within:border-indigo-600 focus-within:ring-4 focus-within:ring-indigo-600/10"
+                ? "transform translate-x-[-1px] translate-y-[-1px] shadow-[5px_5px_0px_#1a1a1a]"
+                : ""
             }`}
           >
-            <div className="pl-4 pr-3 text-slate-300 flex items-center shrink-0">
-              <Search className="w-5 h-5" />
+            <div className="pl-4 pr-2 text-[#1a1a1a] flex items-center shrink-0 font-sans text-xs font-black uppercase select-none tracking-wider border-r-2 border-[#1a1a1a] h-12 mr-3 bg-[#f4efe6] px-3">
+              {loading ? <Cpu className="w-4 h-4 text-[#c2593f] animate-spin" /> : "PROMPT"}
             </div>
             <input
+              id="search-query-input"
               ref={inputRef}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -187,45 +191,48 @@ export default function Home() {
                 if (e.key === "Enter") runSearch();
               }}
               disabled={loading}
-              placeholder='e.g. "SaaS CTOs at Series A startups in New York"'
-              className="flex-1 bg-transparent border-none outline-none text-slate-900 font-sans py-3.5 text-base placeholder-slate-400"
+              placeholder='e.g. "Software houses in Lahore" or "SaaS founders in Karachi"'
+              className="flex-1 bg-transparent border-none outline-none text-[#1a1a1a] font-sans py-4 px-2 text-sm md:text-base placeholder-slate-400 font-bold"
             />
             {query && !loading && (
               <button
+                id="query-clear-button"
                 onClick={() => setQuery("")}
-                className="bg-transparent border-none cursor-pointer text-slate-300 hover:text-slate-500 px-2 flex items-center"
+                className="bg-transparent border-none cursor-pointer text-slate-500 hover:text-[#1a1a1a] px-2 flex items-center"
               >
                 <X className="w-4 h-4" />
               </button>
             )}
             <button
+              id="search-submit-button"
               onClick={() => runSearch()}
               disabled={loading || !query.trim()}
-              className={`border-none px-5 py-2.5 m-1.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all shrink-0 cursor-pointer font-sans ${
+              className={`border-l-2 border-[#1a1a1a] border-y-none border-r-none px-6 py-4 text-xs font-bold uppercase tracking-wider font-sans flex items-center gap-2 transition-all shrink-0 cursor-pointer h-full ${
                 loading || !query.trim()
-                  ? "bg-slate-100 text-slate-400 cursor-not-allowed shadow-none"
-                  : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-md shadow-indigo-600/10"
+                  ? "bg-[#efeae2] text-slate-400 cursor-not-allowed shadow-none"
+                  : "bg-[#f3b13c] hover:bg-[#dca034] text-[#1a1a1a] active:bg-[#c68a1b]"
               }`}
             >
               {loading ? (
                 <>
-                  <Spinner className="w-3.5 h-3.5 border-2 border-white/20 border-t-white rounded-full animate-spin shrink-0" /> Searching...
+                  <Spinner className="w-3.5 h-3.5 border-2 border-[#1a1a1a]/20 border-t-[#1a1a1a] rounded-full animate-spin shrink-0" /> Scraping...
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-3.5 h-3.5" /> Find Prospects
+                  <Search className="w-3.5 h-3.5 text-[#1a1a1a] stroke-[2.5px]" /> Scan Targets
                 </>
               )}
             </button>
           </div>
         </div>
 
-        {/* ── Suggestion chips ── */}
+        {/* ── Suggestion chips (Pakistan tech focus) ── */}
         {!searched && !loading && (
-          <div className="hidden sm:flex flex-wrap gap-2 mb-16 anim-fade-up justify-center" style={{ animationDelay: "150ms" }}>
-            <span className="text-slate-400 text-xs self-center mr-1 font-semibold">Try:</span>
-            {SUGGESTIONS.map((s) => (
+          <div className="hidden sm:flex flex-wrap gap-3 mb-16 anim-fade-up justify-center" style={{ animationDelay: "120ms" }}>
+            <span className="text-[#1a1a1a] text-xs font-bold self-center mr-1 uppercase tracking-wider">Target sectors:</span>
+            {SUGGESTIONS.map((s, i) => (
               <button
+                id={`suggest-chip-${i}`}
                 key={s}
                 className="suggest-chip"
                 onClick={() => {
@@ -241,70 +248,70 @@ export default function Home() {
 
         {/* ── How it works (pre-search only) ── */}
         {!searched && !loading && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-16 anim-fade-up" style={{ animationDelay: "250ms" }}>
+          <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 anim-fade-up" style={{ animationDelay: "200ms" }}>
             {[
               {
                 n: "01",
-                title: "Describe",
-                body: "Type your ideal customer in plain English. No forms, no filters, just a sentence.",
+                title: "Describe Profile",
+                body: "Type target criteria in plain English. The compiler extracts exact role definitions and geographic variables.",
               },
               {
                 n: "02",
-                title: "AI finds them",
-                body: "GPT-OSS 120B returns 10 verified prospects with real contact details and personalization hooks.",
+                title: "Live Web Grounding",
+                body: "GPT-OSS crawls active search indexes in real-time. We extract actual B2B contacts, preventing profile hallucinations.",
               },
               {
                 n: "03",
-                title: "Send",
-                body: "Generate a personalized email or LinkedIn message per prospect with one click.",
+                title: "Outreach Dossier",
+                body: "Retrieve validated target records, verified contact emails, pain-point tags, and custom campaign compositions.",
               },
             ].map((s) => (
-              <div key={s.n} className="bg-slate-50 border border-slate-200 rounded-xl p-5">
-                <div className="font-mono text-[10px] text-slate-400 mb-2.5 tracking-wider">{s.n}</div>
-                <div className="font-serif text-[17px] font-semibold text-slate-900 mb-2">{s.title}</div>
-                <p className="text-xs text-slate-400 leading-relaxed font-sans">{s.body}</p>
-              </div>
+              <article key={s.n} className="bg-[#f4efe6] border-2 border-[#1a1a1a] p-6 shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all duration-150">
+                <div className="font-mono text-xs font-bold text-[#c2593f] border-b border-[#1a1a1a] pb-2 mb-4 uppercase tracking-widest">{s.n} / B2B Pipeline</div>
+                <h3 className="font-sans text-[15px] font-black text-[#1a1a1a] mb-2">{s.title}</h3>
+                <p className="text-xs text-[#4a4a4a] leading-relaxed font-sans font-medium">{s.body}</p>
+              </article>
             ))}
-          </div>
+          </section>
         )}
 
         {/* ── Error ── */}
         {error && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-600 text-xs font-semibold mb-5 flex items-center gap-2 anim-fade-in">
-            ⚠️ {error}
+          <div className="bg-[#fce8e6] border-2 border-[#1a1a1a] text-[#942e29] font-mono text-xs shadow-[2px_2px_0px_#1a1a1a] p-4 mb-6 flex items-center gap-2 anim-fade-in">
+            ⚠️ SYSTEM ERROR: {error}
           </div>
         )}
 
         {/* ── Loading skeleton ── */}
         {loading && (
-          <div>
-            <div className="flex items-center gap-2 text-slate-400 text-xs font-semibold mb-4">
-              <Spinner />
-              <span>Searching for prospects matching <em>&ldquo;{lastQuery}&rdquo;</em>...</span>
+          <section>
+            <div className="flex items-center gap-2.5 text-[#1a1a1a] text-xs font-mono font-bold mb-6 uppercase tracking-wider bg-[#f4efe6] border-2 border-[#1a1a1a] p-3.5 shadow-[2px_2px_0px_#1a1a1a]">
+              <Spinner className="text-[#c2593f]" />
+              <span>CRAWLING B2B TARGET CHANNELS FOR &ldquo;{lastQuery.toUpperCase()}&rdquo;...</span>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {[...Array(6)].map((_, i) => (
                 <SkeletonRow key={i} delay={i * 60} />
               ))}
             </div>
-          </div>
+          </section>
         )}
 
         {/* ── Results list ── */}
         {searched && prospects.length > 0 && (
-          <>
+          <section>
             {/* Hint bar */}
-            <div className="bg-indigo-50/50 border border-indigo-100 rounded-lg px-3.5 py-2 text-xs text-indigo-600/90 font-medium mb-3 flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-              Click any row to expand the profile and generate a personalized AI message.
+            <div className="bg-[#f9eae6] border-2 border-[#1a1a1a] text-[#c2593f] font-sans text-xs font-bold p-4 shadow-[2px_2px_0px_#1a1a1a] mb-6 flex items-center gap-2.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#c2593f]" />
+              <span>Select any dossier row to compile custom email drafts, view technical stacks, or trigger LinkedIn outreach scripts.</span>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               {prospects.map((p, i) => (
                 <ProspectRow key={i} p={p} index={i} />
               ))}
             </div>
-          </>
+          </section>
         )}
       </main>
     </>

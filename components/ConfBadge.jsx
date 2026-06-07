@@ -1,15 +1,19 @@
 import React from "react";
 
 export default function ConfBadge({ score }) {
-  const cfg = score >= 90
-    ? { colorClass: "bg-emerald-50 border-emerald-200 text-emerald-600", label: "High" }
-    : score >= 75
-    ? { colorClass: "bg-amber-50 border-amber-200 text-amber-600", label: "Good" }
-    : { colorClass: "bg-red-50 border-red-200 text-red-600", label: "Low" };
+  const isHigh = score >= 90;
+  const isGood = score >= 75;
+
+  const cfg = isHigh
+    ? { colorClass: "bg-[#e0f2e9] text-[#2e5a44]", label: "HIGH", ticks: "▰▰▰▰" }
+    : isGood
+    ? { colorClass: "bg-[#fef3d6] text-[#855b09]", label: "MID", ticks: "▰▰▰▱" }
+    : { colorClass: "bg-[#fce8e6] text-[#942e29]", label: "LOW", ticks: "▰▱▱▱" };
 
   return (
-    <span className={`border rounded-full px-2.5 py-0.5 text-[11px] font-bold tracking-wide whitespace-nowrap ${cfg.colorClass}`}>
-      {score}% {cfg.label}
+    <span className={`border-2 border-[#1a1a1a] rounded-none font-mono text-[9.5px] px-2.5 py-1 flex items-center gap-2 tracking-wider whitespace-nowrap uppercase shadow-[2px_2px_0px_#1a1a1a] select-none ${cfg.colorClass}`}>
+      <span className="opacity-90 font-mono text-[9px]">{cfg.ticks}</span>
+      <span className="font-extrabold">{cfg.label} &middot; {score}%</span>
     </span>
   );
 }

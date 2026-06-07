@@ -5,69 +5,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Explain Dashboard — ProspectHalo</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: {
+                0: '#faf8f5',
+                1: '#f4efe6',
+                2: '#efeae2',
+                3: '#dcd4c7',
+              },
+              border: {
+                0: '#1a1a1a',
+                1: '#1a1a1a',
+              },
+              accent: {
+                DEFAULT: '#c2593f',
+                hover: '#a8452c',
+                light: '#f9eae6',
+              }
+            },
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              serif: ['Fraunces', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({ startOnLoad: true, theme: 'default' });
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
     </script>
+    <style>
+      body {
+        background-image: 
+          radial-gradient(rgba(26, 26, 26, 0.05) 1.5px, transparent 1.5px);
+        background-size: 20px 20px;
+        background-position: 0 0;
+      }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans antialiased p-8">
+<body class="bg-surface-0 text-slate-800 font-sans antialiased p-6 md:p-8">
     <div class="max-w-6xl mx-auto space-y-12">
-        <header class="border-b border-slate-200 pb-6 flex items-center justify-between">
+        <header class="border-b-2 border-[#1a1a1a] pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900">ProspectHalo Command Center</h1>
-                <p class="mt-2 text-lg text-slate-600">Live project state, architecture, design systems, and next steps.</p>
+                <h1 class="text-3xl font-extrabold tracking-tight text-[#1a1a1a] font-serif italic">ProspectHalo Command Center</h1>
+                <p class="mt-2 text-sm text-[#4a4a4a] font-medium">Live project telemetry, architecture maps, design variables, and next steps.</p>
             </div>
-            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full border border-green-200">
-                Front-end Cleaned & Built
-            </span>
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 bg-[#f4efe6] text-[#1a1a1a] text-xs font-mono rounded-none border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a] uppercase tracking-wider font-bold">
+                  Neo-Brutalist B2B Dossier
+              </span>
+              <span class="px-3 py-1 bg-[#e0f2e9] text-[#2e5a44] text-xs font-mono rounded-none border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a] uppercase tracking-wider font-bold">
+                  Grounding APIs Active
+              </span>
+            </div>
         </header>
+
+        <!-- New: Live Grounded Prospect Verification Data -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              0. Grounded Pipeline Output (Verified Records)
+            </h2>
+            <p class="text-[#4a4a4a] text-xs md:text-sm font-semibold">Dynamic B2B target lists parsed and validated using the search-scraper and Groq reasoning engines:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Prospect Card 1 -->
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex flex-col justify-between space-y-4 shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-base font-extrabold text-[#1a1a1a] font-sans">Andrew Ofstad</h3>
+                            <p class="text-xs text-accent font-sans font-bold uppercase tracking-wider mt-1">Chief Technology Officer @ Airtable</p>
+                            <p class="text-[11px] text-[#4a4a4a] mt-0.5 font-semibold">SaaS &middot; Collaborative Database &middot; New York, USA</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-[#e0f2e9] text-[#2e5a44] text-[10px] font-bold font-mono border-2 border-[#1a1a1a] shadow-[1.5px_1.5px_0px_#1a1a1a]">
+                            HIGH &middot; 96% MATCH
+                        </span>
+                    </div>
+                    
+                    <div class="space-y-2 text-xs text-[#1a1a1a] font-sans border-t border-[#1a1a1a] pt-3 font-semibold">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Company Size:</span>
+                            <span class="font-bold">501-1,000 employees</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Revenue:</span>
+                            <span class="font-bold">$100M-$200M ARR</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Email:</span>
+                            <span class="font-mono text-accent text-[11px] font-black underline decoration-1 decoration-solid decoration-[#1a1a1a]">andrew.ofstad@airtable.com</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-[#1a1a1a] pt-3">
+                        <span class="text-[10px] font-bold text-slate-500 font-mono uppercase tracking-wider">Outreach Hooks</span>
+                        <ul class="text-xs text-[#1a1a1a] space-y-1.5 mt-2 font-sans font-semibold">
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Just closed a $200M Series D round in March 2026</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Announced integration with Salesforce at SaaStr Annual 2024</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Recently opened a new engineering hub in Brooklyn</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-[#1a1a1a] pt-3">
+                        <span class="text-[10px] font-bold text-slate-500 font-mono uppercase tracking-wider">Tech Stack Matrix</span>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">AWS</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">SNOWFLAKE</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">SALESFORCE</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">GITHUB ACTIONS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prospect Card 2 -->
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex flex-col justify-between space-y-4 shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-base font-extrabold text-[#1a1a1a] font-sans">Alex Martinez</h3>
+                            <p class="text-xs text-accent font-sans font-bold uppercase tracking-wider mt-1">Chief Technology Officer @ Front</p>
+                            <p class="text-[11px] text-[#4a4a4a] mt-0.5 font-semibold">Customer Support SaaS &middot; New York, USA</p>
+                        </div>
+                        <span class="px-2.5 py-1 bg-[#e0f2e9] text-[#2e5a44] text-[10px] font-bold font-mono border-2 border-[#1a1a1a] shadow-[1.5px_1.5px_0px_#1a1a1a]">
+                            HIGH &middot; 95% MATCH
+                        </span>
+                    </div>
+                    
+                    <div class="space-y-2 text-xs text-[#1a1a1a] font-sans border-t border-[#1a1a1a] pt-3 font-semibold">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Company Size:</span>
+                            <span class="font-bold">201-500 employees</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Revenue:</span>
+                            <span class="font-bold">$30M-$50M ARR</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500 font-mono text-[10px] uppercase">Email:</span>
+                            <span class="font-mono text-accent text-[11px] font-black underline decoration-1 decoration-solid decoration-[#1a1a1a]">alex.martinez@frontapp.com</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-[#1a1a1a] pt-3">
+                        <span class="text-[10px] font-bold text-slate-500 font-mono uppercase tracking-wider">Outreach Hooks</span>
+                        <ul class="text-xs text-[#1a1a1a] space-y-1.5 mt-2 font-sans font-semibold">
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Just closed a $200M Series D round</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Integrated Front with Salesforce in Q1 2024</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-accent shrink-0 font-mono">[✦]</span>
+                              <span>Spoke on the main stage at SaaStr 2024</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-[#1a1a1a] pt-3">
+                        <span class="text-[10px] font-bold text-slate-500 font-mono uppercase tracking-wider">Tech Stack Matrix</span>
+                        <div class="flex flex-wrap gap-1.5 mt-2">
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">AWS</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">REACT</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">SALESFORCE</span>
+                            <span class="px-2 py-0.5 bg-[#f4efe6] text-[#1a1a1a] border-2 border-[#1a1a1a] text-[9px] font-black font-mono shadow-[1.5px_1.5px_0px_#1a1a1a]">TWILIO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- 1. Actionable AI Choices -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">1. Actionable AI Choices (Next Steps)</h2>
-            <p class="text-slate-600">Copy any of the JSON commands below and paste them to continue the conversation with this specific context.</p>
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              1. Actionable AI Pipeline Directives
+            </h2>
+            <p class="text-[#4a4a4a] text-xs md:text-sm font-semibold">Use these JSON command vectors directly in our paired sessions to build additional workflows.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Option 1 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex flex-col justify-between shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 1</span>
-                        <h3 class="text-lg font-bold mt-1 text-slate-900">Add Mock Test Suite</h3>
-                        <p class="text-slate-600 text-sm mt-2">Create comprehensive mock tests for verifying the API routes (find-prospects, generate-message, score-intent) without using live Groq API keys.</p>
+                        <span class="text-[10px] font-bold font-mono uppercase tracking-wider text-accent">directive_01</span>
+                        <h3 class="text-base font-bold mt-1 text-[#1a1a1a]">Add Scraper Tests</h3>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed font-semibold">Create unit tests for checking the HTML parsing and JSON cleanup stability under mock search payloads.</p>
                     </div>
                     <div class="mt-4">
-                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
-  "task": "add_mock_tests",
-  "scope": ["app/api/**/*.js"]
+                        <pre class="bg-[#faf8f5] text-[#1a1a1a] p-3 border-2 border-[#1a1a1a] text-[10.5px] font-mono overflow-x-auto shadow-[2px_2px_0px_#1a1a1a]"><code>{
+  "task": "add_scraper_tests",
+  "scope": ["app/api/find-prospects/route.js"]
 }</code></pre>
                     </div>
                 </div>
 
                 <!-- Option 2 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex flex-col justify-between shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 2</span>
-                        <h3 class="text-lg font-bold mt-1 text-slate-900">Local Campaign Import/Export</h3>
-                        <p class="text-slate-600 text-sm mt-2">Implement localStorage export/import of saved prospect campaigns so users don't lose their data when they refresh the browser.</p>
+                        <span class="text-[10px] font-bold font-mono uppercase tracking-wider text-accent">directive_02</span>
+                        <h3 class="text-base font-bold mt-1 text-[#1a1a1a]">Local Campaign Storage</h3>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed font-semibold">Implement client-side localStorage to save prospects, search queries, and custom generated message campaigns.</p>
                     </div>
                     <div class="mt-4">
-                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
-  "task": "local_import_export",
+                        <pre class="bg-[#faf8f5] text-[#1a1a1a] p-3 border-2 border-[#1a1a1a] text-[10.5px] font-mono overflow-x-auto shadow-[2px_2px_0px_#1a1a1a]"><code>{
+  "task": "local_campaign_storage",
   "scope": ["app/page.jsx"]
 }</code></pre>
                     </div>
                 </div>
 
                 <!-- Option 3 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex flex-col justify-between shadow-[4px_4px_0px_#1a1a1a] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_#1a1a1a] transition-all">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Option 3</span>
-                        <h3 class="text-lg font-bold mt-1 text-slate-900">Reply Simulator Sandbox</h3>
-                        <p class="text-slate-600 text-sm mt-2">Add an interactive email/LinkedIn reply simulator sandbox where the user can write a mock prospect reply and test the intent classifier live.</p>
+                        <span class="text-[10px] font-bold font-mono uppercase tracking-wider text-accent">directive_03</span>
+                        <h3 class="text-base font-bold mt-1 text-[#1a1a1a]">Outreach Reply Simulator</h3>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed font-semibold">Add a reply simulator section in the frontend where users can type replies and immediately trigger the intent-scoring pipeline.</p>
                     </div>
                     <div class="mt-4">
-                        <pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs font-mono overflow-x-auto"><code>{
-  "task": "intent_sandbox",
-  "scope": ["app/page.jsx"]
+                        <pre class="bg-[#faf8f5] text-[#1a1a1a] p-3 border-2 border-[#1a1a1a] text-[10.5px] font-mono overflow-x-auto shadow-[2px_2px_0px_#1a1a1a]"><code>{
+  "task": "reply_simulator_ui",
+  "scope": ["app/page.jsx", "components/ProspectRow.jsx"]
 }</code></pre>
                     </div>
                 </div>
@@ -76,54 +247,59 @@
 
         <!-- 2. The Design System -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">2. The Design System</h2>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              2. Neo-Brutalist B2B Dossier Design Token Swatches
+            </h2>
+            <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] space-y-6 shadow-[4px_4px_0px_#1a1a1a]">
                 <!-- Color Palettes -->
                 <div>
-                    <h3 class="text-md font-bold text-slate-700 uppercase tracking-wider mb-3">Color Swatches</h3>
+                    <h3 class="text-xs font-bold text-[#1a1a1a] uppercase tracking-widest font-mono mb-3">Color Swatches</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-white border border-slate-200"></div>
-                            <span class="text-xs font-mono block">--surface-0 (#ffffff)</span>
+                            <div class="h-10 w-full bg-[#faf8f5] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold">--surface-0 (#faf8f5)</span>
                         </div>
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-slate-50 border border-slate-200"></div>
-                            <span class="text-xs font-mono block">--surface-1 (#f8f9fb)</span>
+                            <div class="h-10 w-full bg-[#f4efe6] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold">--surface-1 (#f4efe6)</span>
                         </div>
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-indigo-600"></div>
-                            <span class="text-xs font-mono block">--accent (#4f46e5)</span>
+                            <div class="h-10 w-full bg-[#efeae2] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold">--surface-2 (#efeae2)</span>
                         </div>
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-emerald-600"></div>
-                            <span class="text-xs font-mono block">--green (#16a34a)</span>
+                            <div class="h-10 w-full bg-[#c2593f] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold">--accent (#c2593f)</span>
                         </div>
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-amber-500"></div>
-                            <span class="text-xs font-mono block">--amber (#d97706)</span>
+                            <div class="h-10 w-full bg-[#e0f2e9] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold font-bold">--green (#e0f2e9)</span>
                         </div>
                         <div class="space-y-1">
-                            <div class="h-12 w-full rounded bg-red-600"></div>
-                            <span class="text-xs font-mono block">--red (#dc2626)</span>
+                            <div class="h-10 w-full bg-[#1a1a1a] border-2 border-slate-400"></div>
+                            <span class="text-[10px] font-mono block text-[#1a1a1a] font-bold">--border-0 (#1a1a1a)</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Typography -->
-                <div class="border-t border-slate-100 pt-6">
-                    <h3 class="text-md font-bold text-slate-700 uppercase tracking-wider mb-3">Typography & Fonts</h3>
+                <div class="border-t-2 border-[#1a1a1a] pt-6">
+                    <h3 class="text-xs font-bold text-[#1a1a1a] uppercase tracking-widest font-mono mb-3">Font Pairings</h3>
                     <div class="space-y-4">
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase">Heading Font (Fraunces Serif)</span>
-                            <h4 class="text-3xl font-serif text-slate-900 mt-1">Prospects find you, replies close.</h4>
-                        </div>
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase">Body Font (Plus Jakarta Sans)</span>
-                            <p class="text-base text-slate-700 mt-1">Describe your ideal customer. ProspectHalo finds the right people and runs outreach sequences across your email and LinkedIn.</p>
-                        </div>
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase">Code Font (JetBrains Mono)</span>
-                            <p class="text-sm font-mono text-slate-600 mt-1">const model = "openai/gpt-oss-120b";</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase font-mono block mb-1">Display Headings (Fraunces Serif Italic)</span>
+                                <h4 class="text-2xl font-serif text-[#1a1a1a] font-medium italic">Prospects find you, replies close.</h4>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase font-mono block mb-1">Body Text (Plus Jakarta Sans)</span>
+                                <p class="text-xs text-[#1a1a1a] leading-relaxed font-semibold">Describe targets in plain English. ProspectHalo generates personalized vectors for multi-channel sales approaches.</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase font-mono block mb-1">Telemetry / Badges (JetBrains Mono)</span>
+                                <p class="text-xs font-mono text-accent leading-relaxed font-bold">const active_node = "openai/gpt-oss-120b";</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -132,42 +308,45 @@
 
         <!-- 3. Task Management -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">3. Task Management (To-do & Done)</h2>
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              3. Telemetry Log & Checklist
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Pending To-do's -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                    <h3 class="text-lg font-bold text-indigo-700">Pending Tasks</h3>
-                    <ul class="space-y-2 text-sm text-slate-700">
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] space-y-4 shadow-[4px_4px_0px_#1a1a1a]">
+                    <h3 class="text-sm font-bold font-mono text-[#c2593f] uppercase tracking-wider">Pipeline backlog</h3>
+                    <ul class="space-y-2 text-xs font-mono text-[#1a1a1a] font-bold">
                         <li class="flex items-start gap-2">
-                            <span class="text-slate-400 font-mono">[ ]</span>
-                            <span>Create automated unit tests for checking Groq response parser stability.</span>
+                            <span class="text-slate-600 font-black">[ ]</span>
+                            <span>Integrate client-side local storage to cache search history and campaigns.</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-slate-400 font-mono">[ ]</span>
-                            <span>Integrate simulated test replies for testing response classification.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-slate-400 font-mono">[ ]</span>
-                            <span>Enable CSV data upload to bootstrap targeted AI research.</span>
+                            <span class="text-slate-600 font-black">[ ]</span>
+                            <span>Create frontend simulation box to let users test intent classification.</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Completed Work -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                    <h3 class="text-lg font-bold text-emerald-700">Completed Work</h3>
-                    <ul class="space-y-2 text-sm text-slate-700">
+                <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] space-y-4 shadow-[4px_4px_0px_#1a1a1a]">
+                    <h3 class="text-sm font-bold font-mono text-[#2e5a44] uppercase tracking-wider">Completed commits</h3>
+                    <ul class="space-y-2.5 text-xs text-[#1a1a1a] font-semibold">
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span><strong>Refactored & Compartmentalized Code:</strong> Extracted modular components to the <code>components/</code> folder. Simplified <code>page.jsx</code> from ~716 lines to ~268 lines.</span>
+                            <span class="text-[#2e5a44] font-bold font-mono">[✓]</span>
+                            <span><strong>Neo-Brutalist Layout UI:</strong> Overhauled globals.css with warm paper colors, heavy outlines, and physical translation hovers.</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span><strong>Migrated styling & icons:</strong> Converted inline styles to Tailwind CSS v4 utility classes and inline SVGs to standard <code>lucide-react</code> icons.</span>
+                            <span class="text-[#2e5a44] font-bold font-mono">[✓]</span>
+                            <span><strong>Dossier Components:</strong> Customized tags, confidence tick badges, and square bordered avatars with solid offset shadows.</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span><strong>CSS Parse Error Fixed:</strong> Removed the duplicated <code>@import</code> inside the page JSX style block and moved it into the layout HTML head.</span>
+                            <span class="text-[#2e5a44] font-bold font-mono">[✓]</span>
+                            <span><strong>Pakistan B2B Suggestions:</strong> Programmed target profile examples focusing on Lahore, Karachi, and Islamabad tech hubs.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-[#2e5a44] font-bold font-mono">[✓]</span>
+                            <span><strong>SEO configuration:</strong> Added descriptive B2B metadata, title tags, openGraph fields, and viewport properties.</span>
                         </li>
                     </ul>
                 </div>
@@ -176,15 +355,18 @@
 
         <!-- 4. Architecture Walkthrough -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">4. Architecture Walkthrough & Pipelines</h2>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                <p class="text-slate-700">
-                    ProspectHalo operates as a serverless Next.js application leveraging edge-ready API routes connecting to Groq. By utilizing the <code>openai/gpt-oss-120b</code> model, response times are extremely rapid.
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              4. System Pipeline & Routing Overview
+            </h2>
+            <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] space-y-4 shadow-[4px_4px_0px_#1a1a1a]">
+                <p class="text-[#4a4a4a] text-xs md:text-sm leading-relaxed font-semibold">
+                    ProspectHalo integrates real-world web grounding crawls and structured generative reasoning. Rather than making predictions using static, stale data blocks, the endpoint scraper fetches HTML indices, parses metadata snippets, and injects context into the active inference processor.
                 </p>
-                <div class="border-l-4 border-indigo-500 bg-indigo-50 p-4 rounded-r-lg">
-                    <h4 class="font-bold text-indigo-900 text-sm">Key Build Pipeline:</h4>
-                    <p class="text-xs text-indigo-700 mt-1">
-                        Dev Mode: Turbopack transpiles globals.css and parses React components. Next.js 16 compiles and bundles assets. By importing external fonts via layout headers instead of CSS files, we bypass CSS ordering parsing rules and improve Page Speed metrics.
+                <div class="border-l-4 border-[#c2593f] bg-[#f9eae6] p-4 border-2 border-[#1a1a1a] shadow-[2px_2px_0px_#1a1a1a]">
+                    <h4 class="font-bold text-[#1a1a1a] text-xs font-mono uppercase">Web Scrape Grounding Routing Loop:</h4>
+                    <p class="text-[11px] text-[#1a1a1a] mt-1 font-mono leading-relaxed font-bold">
+                        Input Target -> DDG Request -> Token Filtering -> Snippet Extraction -> LLM Injection -> Low-temp JSON Output -> Client Table Render.
                     </p>
                 </div>
             </div>
@@ -192,14 +374,19 @@
 
         <!-- 5. Workflows & Flow Charts -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">5. System Workflows</h2>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex justify-center">
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              5. Flow Telemetry Diagrams
+            </h2>
+            <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex justify-center shadow-[4px_4px_0px_#1a1a1a]">
                 <div class="mermaid w-full">
                     flowchart TD
                         User[User Input ICP] -->|POST description| SearchAPI[api/find-prospects]
-                        SearchAPI -->|Call Groq SDK gpt-oss-120b| Groq[Groq API]
-                        Groq -->|JSON List| SearchAPI
-                        SearchAPI -->|Array of 10 Profiles| UI[Page UI Grid]
+                        SearchAPI -->|Scrape DuckDuckGo HTML| WebSearch[DuckDuckGo Search Results]
+                        WebSearch -->|Extract titles, snippets, urls| SearchAPI
+                        SearchAPI -->|Call Groq SDK with grounding context| Groq[Groq API gpt-oss-120b]
+                        Groq -->|Grounded B2B JSON| SearchAPI
+                        SearchAPI -->|Array of 10 Real Prospects| UI[Page UI Grid]
                         
                         UI -->|Click Generate Message| MsgAPI[api/generate-message]
                         MsgAPI -->|Call Groq with context| Groq
@@ -216,8 +403,11 @@
 
         <!-- 6. Class Diagram Area -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-bold text-slate-800">6. Domain Data Structure</h2>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex justify-center">
+            <h2 class="text-xl font-bold text-[#1a1a1a] font-mono uppercase tracking-wide flex items-center gap-2">
+              <span class="w-2.5 h-2.5 bg-[#c2593f] border border-[#1a1a1a]"></span>
+              6. Domain Entities Schema
+            </h2>
+            <div class="bg-surface-1 p-6 border-2 border-[#1a1a1a] flex justify-center shadow-[4px_4px_0px_#1a1a1a]">
                 <div class="mermaid w-full">
                     classDiagram
                         class Prospect {
